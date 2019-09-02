@@ -6,6 +6,8 @@ import (
 )
 
 func TestCheckLuhnSuccess(t *testing.T) {
+	t.Parallel()
+
 	cardNumbers := []string{
 		"4242424242424242",
 		"4000056655665556",

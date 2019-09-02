@@ -1,4 +1,4 @@
-module tranngoclam/go-luhn
+module tranngoclam/go-card
 
 go 1.12
 

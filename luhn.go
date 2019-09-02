@@ -8,9 +8,9 @@ func CheckLuhn(cardNumber string) (bool, error) {
 	var sum int
 	var alternate bool
 
-	numberLen := len(cardNumber)
+	length := len(cardNumber)
 
-	for i := numberLen - 1; i >= 0; i-- {
+	for i := length - 1; i >= 0; i-- {
 		mod, err := strconv.Atoi(string(cardNumber[i]))
 		if err != nil {
 			return false, err

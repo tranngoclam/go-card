@@ -1,1 +1,1 @@
-# go-luhn
+# go-card
