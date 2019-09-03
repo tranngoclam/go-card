@@ -1,4 +1,4 @@
-package luhn
+package gocard
 
 import "strconv"
 
@@ -6,24 +6,24 @@ import "strconv"
 // Reference: https://en.wikipedia.org/wiki/Luhn_algorithm
 func CheckLuhn(cardNumber string) (bool, error) {
 	var sum int
-	var alternate bool
+	var alt bool
 
 	length := len(cardNumber)
 
 	for i := length - 1; i >= 0; i-- {
-		mod, err := strconv.Atoi(string(cardNumber[i]))
+		digit, err := strconv.Atoi(string(cardNumber[i]))
 		if err != nil {
 			return false, err
 		}
-		if alternate {
-			mod *= 2
-			if mod > 9 {
-				mod = (mod % 10) + 1
+		if alt {
+			digit *= 2
+			if digit > 9 {
+				digit -= 9
 			}
 		}
 
-		alternate = !alternate
-		sum += mod
+		sum += digit
+		alt = !alt
 	}
 
 	return sum%10 == 0, nil
