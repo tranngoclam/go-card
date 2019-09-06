@@ -24,9 +24,6 @@ jobs:
               dep ensure
           fi
 
-      - name: Set up golangci-lint
-        run: go get -u github.com/golangci/golangci-lint/cmd/golangci-lint
-
   lint:
     name: Lint
     runs-on: ubuntu-latest
