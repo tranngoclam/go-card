@@ -24,15 +24,16 @@ jobs:
               dep ensure
           fi
 
-      - name: GolangCI-Lint Action
-        uses: actions-contrib/golangci-lint@v0.1.0
-        args: run
+      - name: Get GolangCI-Lint
+        run: |
+          curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | sh -s -- -b $(go env GOPATH)/bin v1.17.1
 
-#      - name: Run golangci-lint
-#        run: golangci-lint run
+      - name: Lint
+        run: |
+          $(go env GOPATH)/bin/golangci-lint run
 
       - name: Run go test
-        run: go test
+        run: go test -v -cover ./...
 
       - name: Run go build
         run: go build -v .
