@@ -1,4 +1,4 @@
-package luhn
+package gocard
 
 import (
 	"github.com/stretchr/testify/require"
