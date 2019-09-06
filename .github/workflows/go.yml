@@ -24,8 +24,8 @@ jobs:
               dep ensure
           fi
 
-      - name: Install golangci-lint
-        run: go get -u github.com/golangci/golangci-lint/cmd/golangci-lint
+      - name: GolangCI-Lint Action
+        uses: actions-contrib/golangci-lint@v0.1.0
 
       - name: Run golangci-lint
         run: golangci-lint run
