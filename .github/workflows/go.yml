@@ -49,4 +49,4 @@ jobs:
     steps:
 
       - name: Build
-          run: go build -v .
+        run: go build -v .
