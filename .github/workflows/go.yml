@@ -2,8 +2,8 @@ name: Go
 on: [push]
 jobs:
 
-  dep:
-    name: Dep
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
 
@@ -24,26 +24,11 @@ jobs:
               dep ensure
           fi
 
-  lint:
-    name: Lint
-    runs-on: ubuntu-latest
-    steps:
-
       - name: Run golangci-lint
         run: golangci-lint run
 
-  test:
-    name: Test
-    runs-on: ubuntu-latest
-    steps:
-
-      - name: Test
+      - name: Run go test
         run: go test
 
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-
-      - name: Build
+      - name: Run go build
         run: go build -v .
