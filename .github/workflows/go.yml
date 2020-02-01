@@ -33,7 +33,4 @@ jobs:
           $(go env GOPATH)/bin/golangci-lint run
 
       - name: Run go test
-        run: go test -v -cover ./...
-
-      - name: Run go build
-        run: go build -v .
+        run: go test -v -race -cover ./...
